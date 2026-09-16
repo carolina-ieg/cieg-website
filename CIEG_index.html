@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carolina Industrials &amp; Energy Group</title>
+<meta name="description" content="A student organization at UNC Chapel Hill organized by product group — M&A, Leveraged Finance, Debt Capital Markets, and Equity Capital Markets — covering the industrials and energy sectors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F6F8;
+  --surface:#FFFFFF;
+  --ink:#0C2340;
+  --ink-2:#2C4257;
+  --muted:#5E6F80;
+  --rule:#D2DAE2;
+  --rule-soft:#E3E9EE;
+  --deep:#0C2340;
+  --deep-2:#081B33;
+  --accent:#4E93DC;
+  --accent-ink:#1A5FA8;
+  --on-deep:#E9F0F7;
+  --on-deep-mute:#9FB4C9;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"IBM Plex Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 30px}
+.narrow{max-width:700px}
+
+/* ---------- masthead ---------- */
+.masthead{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s, border-color .3s, box-shadow .3s;
+  border-bottom:1px solid transparent;}
+.masthead-in{max-width:1120px;margin:0 auto;padding:14px 30px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.mark{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+.mark img{height:36px;width:auto}
+.mark .m-light{display:block}
+.mark .m-dark{display:none}
+.mark-name{font-family:"Newsreader",Georgia,serif;font-size:18.5px;line-height:1.14;color:var(--on-deep);transition:color .3s}
+.mark-name small{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:11px;letter-spacing:.07em;color:var(--on-deep-mute);margin-top:2px;transition:color .3s}
+nav{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--on-deep-mute);font-size:15px;font-weight:450;padding:3px 0;border-bottom:1.5px solid transparent;transition:color .3s}
+nav a:hover,nav a.on{color:var(--on-deep)}
+nav a.on{border-bottom-color:var(--accent)}
+.apply-btn{text-decoration:none;background:var(--accent);color:#fff;padding:9px 18px;border-radius:3px;font-size:14.5px;font-weight:500;transition:background .2s}
+.apply-btn:hover{background:#3C7FC6}
+
+.masthead.solid{background:rgba(244,246,248,.93);backdrop-filter:saturate(1.5) blur(12px);border-bottom-color:var(--rule-soft)}
+.masthead.solid .mark-name{color:var(--ink)}
+.masthead.solid .mark-name small{color:var(--muted)}
+.masthead.solid nav a{color:var(--ink-2)}
+.masthead.solid nav a:hover,.masthead.solid nav a.on{color:var(--ink)}
+.masthead.solid .mark .m-light{display:none}
+.masthead.solid .mark .m-dark{display:block}
+
+/* ---------- views ---------- */
+.view{display:none}
+.view.on{display:block}
+
+section{padding:88px 0;border-top:1px solid var(--rule-soft)}
+.band{background:var(--deep);color:var(--on-deep);border-top:0}
+.band h2,.band h3{color:var(--on-deep)}
+.band p{color:var(--on-deep-mute)}
+.band .tranche{border-bottom-color:rgba(255,255,255,.1)}
+.band .tranche-idx{border-right-color:rgba(255,255,255,.1);color:var(--accent)}
+.band .tranche-tag{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.04);color:var(--on-deep-mute)}
+.band .stack{border-top-color:rgba(255,255,255,.18)}
+.band .col{border-top-color:rgba(255,255,255,.18)}
+.band .def{border-bottom-color:rgba(255,255,255,.1)}
+.band .defs{border-top-color:rgba(255,255,255,.18)}
+.band dt{color:var(--on-deep)}
+.band dd{color:var(--on-deep-mute)}
+
+h1{font-family:"Newsreader",Georgia,serif;font-weight:400;font-size:clamp(36px,5.6vw,62px);line-height:1.06;letter-spacing:-.02em;margin:0 0 22px;max-width:16ch}
+h2{font-family:"Newsreader",Georgia,serif;font-weight:400;font-size:clamp(26px,3.4vw,36px);line-height:1.16;letter-spacing:-.013em;margin:0 0 18px;max-width:23ch}
+h3{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:20.5px;line-height:1.28;margin:0 0 7px;letter-spacing:-.004em}
+p{margin:0 0 17px;max-width:66ch;color:var(--ink-2)}
+p.lead{font-size:20px;line-height:1.58;max-width:56ch}
+.kicker{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:17px;color:var(--accent-ink);margin:0 0 14px}
+.band .kicker{color:var(--accent)}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;min-height:88vh;display:flex;align-items:flex-end;
+  padding:150px 0 76px;border-top:0;overflow:hidden;
+  background-color:#081B33;
+  background-image:
+    linear-gradient(to bottom, rgba(8,27,51,.62) 0%, rgba(8,27,51,.55) 45%, rgba(8,27,51,.93) 100%),
+    var(--photo, none),
+    radial-gradient(120% 90% at 78% 15%, #1D4E82 0%, transparent 58%),
+    linear-gradient(160deg,#0C2340 0%,#081B33 62%,#06131F 100%);
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  color:var(--on-deep);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.20;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.5) 0 1px, transparent 1px 78px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.28) 0 1px, transparent 1px 78px);
+  mask-image:radial-gradient(130% 100% at 72% 20%, #000 0%, transparent 72%);
+  -webkit-mask-image:radial-gradient(130% 100% at 72% 20%, #000 0%, transparent 72%);
+}
+.hero-photo{position:absolute;inset:0;z-index:-1}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{color:#fff;max-width:17ch}
+.hero p{color:rgba(233,240,247,.86)}
+.hero-logo{height:96px;width:auto;margin-bottom:28px;opacity:.97}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-block;text-decoration:none;padding:13px 24px;border-radius:3px;font-size:15.5px;font-weight:500;transition:background .2s,border-color .2s,color .2s}
+.btn-solid{background:var(--accent);color:#fff}
+.btn-solid:hover{background:#3C7FC6}
+.btn-line{border:1px solid rgba(255,255,255,.34);color:#fff}
+.btn-line:hover{border-color:#fff;background:rgba(255,255,255,.07)}
+.page-hero{padding:170px 0 74px;border-top:0;background:var(--deep);color:var(--on-deep);position:relative;overflow:hidden}
+.page-hero::after{content:"";position:absolute;inset:0;opacity:.16;pointer-events:none;
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.5) 0 1px,transparent 1px 74px);
+  mask-image:linear-gradient(to right, transparent 40%, #000 100%);
+  -webkit-mask-image:linear-gradient(to right, transparent 40%, #000 100%)}
+.page-hero .wrap{position:relative;z-index:2}
+.page-hero h1{color:#fff}
+.page-hero p{color:rgba(233,240,247,.84)}
+
+/* ---------- stack ---------- */
+.stack{margin-top:12px;border-top:1px solid var(--rule)}
+.tranche{display:grid;grid-template-columns:58px 1fr;border-bottom:1px solid var(--rule-soft);transition:background .25s}
+.tranche:hover{background:rgba(78,147,220,.05)}
+.band .tranche:hover{background:rgba(255,255,255,.035)}
+.tranche-idx{padding:28px 0 28px 2px;font-family:"Newsreader",Georgia,serif;font-size:15px;color:var(--accent-ink);border-right:1px solid var(--rule-soft)}
+.tranche-body{padding:26px 0 28px 28px}
+.tranche-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:5px}
+.tranche-head h3{margin:0}
+.tranche-tag{font-size:12.5px;color:var(--muted);border:1px solid var(--rule);padding:2px 9px;border-radius:2px;background:var(--surface)}
+.tranche-body p{margin:0;max-width:62ch;font-size:16.5px}
+
+/* ---------- columns / defs / panel ---------- */
+.cols{display:grid;gap:42px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:10px}
+.col{border-top:1px solid var(--rule);padding-top:19px}
+.col h3{margin-bottom:8px}
+.col p{font-size:16.5px;margin:0;max-width:44ch}
+.defs{border-top:1px solid var(--rule);margin-top:6px}
+.def{display:grid;grid-template-columns:210px 1fr;gap:30px;padding:20px 0;border-bottom:1px solid var(--rule-soft);margin:0}
+.def dt{font-weight:500;color:var(--ink);font-size:16px}
+.def dd{margin:0;color:var(--ink-2);font-size:16.5px;max-width:58ch}
+.panel{background:var(--surface);border:1px solid var(--rule-soft);border-left:3px solid var(--accent);padding:30px 32px;border-radius:3px}
+.panel h3{margin-bottom:9px}
+.panel p{margin:0;font-size:16.5px}
+
+/* ---------- media band ---------- */
+.media{position:relative;min-height:400px;display:flex;align-items:center;border-top:0;overflow:hidden;
+  background-color:#0A1C30;
+  background-image:
+    linear-gradient(90deg, rgba(8,27,51,.94) 0%, rgba(8,27,51,.72) 52%, rgba(8,27,51,.5) 100%),
+    var(--photo, none),
+    radial-gradient(90% 120% at 85% 50%, #1D4E82 0%, transparent 60%),
+    linear-gradient(140deg,#0C2340,#06131F);
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  color:var(--on-deep);padding:76px 0}
+.media h2{color:#fff}
+.media p{color:rgba(233,240,247,.84);max-width:50ch}
+.media .wrap{position:relative;z-index:2}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.figure{position:relative;border-radius:4px;overflow:hidden;min-height:330px;border:1px solid var(--rule);
+  background-color:#0C2340;
+  background-image:var(--photo, none), linear-gradient(150deg,#0C2340,#164272 55%,#0A1C30);
+  background-size:cover;background-position:center;background-repeat:no-repeat}
+.figure::after{content:"";position:absolute;inset:0;opacity:.22;
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.4) 0 1px,transparent 1px 42px),
+                   repeating-linear-gradient(90deg,rgba(255,255,255,.4) 0 1px,transparent 1px 42px)}
+
+/* ---------- stat strip ---------- */
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.stat{padding:30px 28px 30px 0;border-right:1px solid var(--rule-soft)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:"Newsreader",Georgia,serif;font-weight:400;font-size:38px;line-height:1;color:var(--accent-ink);margin-bottom:7px}
+.stat span{font-size:15px;color:var(--muted);display:block;max-width:26ch}
+.band .stat{border-right-color:rgba(255,255,255,.12)}
+.band .stat b{color:var(--accent)}
+.band .stat span{color:var(--on-deep-mute)}
+.band .strip{border-color:rgba(255,255,255,.18)}
+
+/* ---------- cta ---------- */
+.cta{background:var(--deep-2);color:var(--on-deep);border-top:0;padding:96px 0}
+.cta h2{color:#fff;max-width:20ch}
+.cta p{color:var(--on-deep-mute);max-width:54ch}
+
+/* ---------- footer ---------- */
+footer{background:var(--deep-2);color:var(--on-deep-mute);padding:52px 0 58px;font-size:14.5px;border-top:1px solid rgba(255,255,255,.1)}
+.foot-top{display:flex;gap:34px;flex-wrap:wrap;align-items:flex-start;margin-bottom:30px}
+.foot-top img{height:74px;width:auto;opacity:.92}
+.foot-nav{display:flex;gap:24px;flex-wrap:wrap;margin-left:auto}
+footer a{color:var(--on-deep-mute);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.18)}
+footer a:hover{color:#fff;border-bottom-color:var(--accent)}
+.disclaimer{margin:0;font-size:12.5px;line-height:1.55;max-width:74ch;color:rgba(159,180,201,.75);padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+
+/* ---------- reveal ---------- */
+.r{opacity:0;transform:translateY(16px);transition:opacity .62s cubic-bezier(.22,.61,.36,1),transform .62s cubic-bezier(.22,.61,.36,1)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.07s}.r.d2{transition-delay:.14s}.r.d3{transition-delay:.21s}
+
+@media (max-width:860px){
+  .split{grid-template-columns:1fr;gap:34px}
+  .figure{min-height:240px}
+}
+@media (max-width:720px){
+  body{font-size:16.5px}
+  section{padding:60px 0}
+  .hero{min-height:82vh;padding:130px 0 56px}
+  .page-hero{padding:132px 0 56px}
+  .hero-logo{height:72px}
+  .masthead-in{gap:12px;padding:11px 22px}
+  .wrap{padding:0 22px}
+  nav{gap:17px;order:3;width:100%;overflow-x:auto;padding-bottom:2px}
+  nav a{white-space:nowrap}
+  .mark img{height:30px}
+  .mark-name{font-size:16px}
+  .def{grid-template-columns:1fr;gap:4px}
+  .tranche{grid-template-columns:36px 1fr}
+  .tranche-body{padding-left:18px}
+  .stat{border-right:0;border-bottom:1px solid var(--rule-soft);padding-right:0}
+  .stat:last-child{border-bottom:0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .r{opacity:1;transform:none;transition:none}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead" id="mh">
+  <div class="masthead-in">
+    <a class="mark" href="#/">
+      <img class="m-light" src="mark-light.png" alt="">
+      <img class="m-dark" src="mark-dark.png" alt="">
+      <span class="mark-name">Carolina Industrials &amp; Energy Group
+        <small>UNC CHAPEL HILL</small>
+      </span>
+    </a>
+    <nav>
+      <a href="#/" data-nav="/">Home</a>
+      <a href="#/about" data-nav="/about">About</a>
+      <a href="#/program" data-nav="/program">Program</a>
+      <a href="#/apply" data-nav="/apply">Apply</a>
+    </nav>
+    <a class="apply-btn" href="#/apply">Apply</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HOME ================= -->
+<div class="view" id="v-/">
+
+  <section class="hero" id="hero" style="--photo:url('hero.jpg')">
+    <div class="wrap">
+      <img class="hero-logo r" src="logo-light.png" alt="Carolina Industrials &amp; Energy Group">
+      <h1 class="r d1">Most finance clubs are organized by sector. We are organized by product.</h1>
+      <p class="lead r d2">A student organization at UNC Chapel Hill where members rotate through the four product groups that make up an investment bank, building a financial model and presenting a transaction in each one.</p>
+      <div class="hero-actions r d3">
+        <a class="btn btn-solid" href="#/apply">Apply</a>
+        <a class="btn btn-line" href="#/about">What we do</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="strip r">
+        <div class="stat"><b>4</b><span>Product groups, covered in one semester</span></div>
+        <div class="stat"><b>4</b><span>Models built and pitches delivered per member</span></div>
+        <div class="stat"><b>2</b><span>Sectors, so knowledge compounds instead of resetting</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker r">The program</p>
+      <h2 class="r">Four product groups, in the order a deal moves through them</h2>
+      <p class="r d1">Each one is a block of the semester. You build the model, present the recommendation, and take questions from a panel that has already read your work.</p>
+      <div class="stack">
+
+        <div class="tranche r">
+          <div class="tranche-idx">01</div>
+          <div class="tranche-body">
+            <div class="tranche-head"><h3>Mergers &amp; Acquisitions</h3><span class="tranche-tag">Merger model</span></div>
+            <p>A company is acquired. You value the target, set the price, choose the financing mix, and show what the deal does to earnings.</p>
+          </div>
+        </div>
+
+        <div class="tranche r">
+          <div class="tranche-idx">02</div>
+          <div class="tranche-body">
+            <div class="tranche-head"><h3>Leveraged Finance</h3><span class="tranche-tag">Leveraged buyout</span></div>
+            <p>A sponsor finances the buyout. You build the capital structure, run the debt schedule, and account for where the return actually comes from.</p>
+          </div>
+        </div>
+
+        <div class="tranche r">
+          <div class="tranche-idx">03</div>
+          <div class="tranche-body">
+            <div class="tranche-head"><h3>Debt Capital Markets</h3><span class="tranche-tag">High yield issuance</span></div>
+            <p>The company raises debt. You assess the credit, place it against comparable bonds, and argue for where the issue should price.</p>
+          </div>
+        </div>
+
+        <div class="tranche r">
+          <div class="tranche-idx">04</div>
+          <div class="tranche-body">
+            <div class="tranche-head"><h3>Equity Capital Markets</h3><span class="tranche-tag">Convertible issuance</span></div>
+            <p>Capital comes back through the equity market. You structure an equity-linked offering and weigh it against the straight alternatives.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="media" style="--photo:url('sector.jpg')">
+    <div class="wrap">
+      <p class="kicker r">Industrials and energy</p>
+      <h2 class="r">Two sectors built on capital</h2>
+      <p class="r d1">Manufacturing, aerospace and defense, transportation and logistics, and building products on one side. Upstream, midstream, oilfield services, power, and renewables on the other.</p>
+      <p class="r d2">Both are capital intensive and heavily financed, which makes them unusually well suited to product work. Staying inside them means a member finishes the year knowing something specific rather than a little about everything.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker r">Why it is built this way</p>
+      <h2 class="r">What the structure is for</h2>
+      <div class="cols">
+        <div class="col r"><h3>Technical work, not commentary</h3><p>Product groups own how a transaction is structured and priced. That is where the analytical work sits, and it is what gets tested when you interview.</p></div>
+        <div class="col r d1"><h3>Small teams, real accountability</h3><p>You work in a team of two and present alongside your partner. Both of you answer questions, and there is nowhere to hide in a pair.</p></div>
+        <div class="col r d2"><h3>Feedback that is written down</h3><p>Every pitch gets written critique within a day. The record is what makes the second pitch better than the first.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <p class="kicker r">Applications are open</p>
+      <h2 class="r">Built for people who want to make things, not sit through presentations about them.</h2>
+      <p class="r d1">No prior finance experience is required. We select for follow-through.</p>
+      <div class="hero-actions r d2">
+        <a class="btn btn-solid" href="#/apply">Apply</a>
+        <a class="btn btn-line" href="#/program">See the program</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= ABOUT ================= -->
+<div class="view" id="v-/about">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker r">About</p>
+      <h1 class="r">A club built around the work, not around the roster.</h1>
+      <p class="lead r d1">Carolina Industrials &amp; Energy Group is a student run organization at UNC Chapel Hill focused on teaching members the technical work that sits inside an investment bank.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="kicker r">Product over coverage</p>
+          <h2 class="r">Why product groups</h2>
+          <p class="r d1">Nearly every finance organization on campus splits into sector teams. We split into the four product groups a bank is actually built from: Mergers &amp; Acquisitions, Leveraged Finance, Debt Capital Markets, and Equity Capital Markets.</p>
+          <p class="r d2">The difference is what each side owns. A coverage team owns the client relationship and the sector story. A product team owns the structuring: how a transaction is financed, what the debt costs, how an offering prices, and what the returns look like. That is the technical half of banking, and it is the half a student can actually practice.</p>
+        </div>
+        <div class="figure r d1" style="--photo:url('about.jpg')"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="kicker r">The sector mandate</p>
+      <h2 class="r">Why industrials and energy</h2>
+      <p class="r d1">Every company we work on comes from one of those two sectors. The constraint is deliberate. Both are capital intensive and heavily financed, which makes them well suited to product work, and staying narrow means members build on what they already know instead of starting over each block.</p>
+      <div class="strip r d2" style="margin-top:34px">
+        <div class="stat"><b>Industrials</b><span>Manufacturing, aerospace and defense, transportation and logistics, building products, industrial services</span></div>
+        <div class="stat"><b>Energy</b><span>Upstream, midstream, oilfield services, refining, power, utilities, renewables</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow">
+      <p class="kicker r">Scope</p>
+      <h2 class="r">What we are not</h2>
+      <div class="defs">
+        <dl class="def r"><dt>Not a fund</dt><dd>We hold no capital and manage no portfolio. Everything we produce is a simulation.</dd></dl>
+        <dl class="def r"><dt>Not a lecture series</dt><dd>Instruction is delivered in service of work that is due. Nothing is taught in the abstract.</dd></dl>
+        <dl class="def r"><dt>Not a sector coverage group</dt><dd>Sector work exists to supply companies for product analysis, not as an end in itself.</dd></dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2 class="r">See how a semester is built</h2>
+      <p class="r d1">Four blocks, four models, four pitches.</p>
+      <div class="hero-actions r d2">
+        <a class="btn btn-solid" href="#/program">View the program</a>
+        <a class="btn btn-line" href="#/apply">Apply</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= PROGRAM ================= -->
+<div class="view" id="v-/program">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker r">Program</p>
+      <h1 class="r">Four blocks. One model and one pitch in each.</h1>
+      <p class="lead r d1">The semester is divided into four blocks, each covering one product group. Everyone moves through them together, so one discipline is taught at a time and applied immediately.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker r">Inside a block</p>
+      <h2 class="r">How a block runs</h2>
+      <div class="defs">
+        <dl class="def r"><dt>Pick a company</dt><dd>Each team proposes a public company in industrials or energy and has it approved before work begins.</dd></dl>
+        <dl class="def r"><dt>Learn the product</dt><dd>The block opens with a session on the transaction type and the model behind it.</dd></dl>
+        <dl class="def r"><dt>Build</dt><dd>Two to three weeks. One partner owns the model, the other owns the deck, and the roles swap next block.</dd></dl>
+        <dl class="def r"><dt>Pitch</dt><dd>Fifteen minutes presenting, fifteen minutes of questions from a panel that has already reviewed your model.</dd></dl>
+        <dl class="def r"><dt>Critique</dt><dd>Written feedback within a day, covering the analysis, the delivery, and how the work held up under questioning.</dd></dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="kicker r">The four blocks</p>
+      <h2 class="r">What you build</h2>
+      <div class="stack">
+        <div class="tranche r">
+          <div class="tranche-idx">01</div>
+          <div class="tranche-body"><div class="tranche-head"><h3>Mergers &amp; Acquisitions</h3><span class="tranche-tag">Merger model</span></div>
+          <p>Valuation, purchase price and premium, sources and uses, and the effect of the transaction on earnings per share.</p></div>
+        </div>
+        <div class="tranche r">
+          <div class="tranche-idx">02</div>
+          <div class="tranche-body"><div class="tranche-head"><h3>Leveraged Finance</h3><span class="tranche-tag">Leveraged buyout</span></div>
+          <p>Capital structure across the debt tranches, a full debt schedule, credit statistics through the hold, and sponsor returns.</p></div>
+        </div>
+        <div class="tranche r">
+          <div class="tranche-idx">03</div>
+          <div class="tranche-body"><div class="tranche-head"><h3>Debt Capital Markets</h3><span class="tranche-tag">High yield issuance</span></div>
+          <p>Credit profile and ratings view, relative value against comparable bonds, proposed pricing, and the call and covenant structure.</p></div>
+        </div>
+        <div class="tranche r">
+          <div class="tranche-idx">04</div>
+          <div class="tranche-body"><div class="tranche-head"><h3>Equity Capital Markets</h3><span class="tranche-tag">Convertible issuance</span></div>
+          <p>Offering terms, dilution, and the effective cost of capital measured against straight debt and straight equity.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow">
+      <div class="panel r">
+        <h3>The question you should expect</h3>
+        <p>What is this answer most sensitive to, and what happens if that assumption is wrong? It comes up in every block. If you can answer it, you built the model. If you cannot, you filled in a template.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow">
+      <p class="kicker r">After the rotation</p>
+      <h2 class="r">Beyond the first semester</h2>
+      <p class="r d1">Once a member has been through all four blocks, they place into a standing product group and take the second transaction type in each: a separation analysis in M&amp;A, a dividend recapitalization in Leveraged Finance, a liability management exercise in Debt Capital Markets, and an initial public offering in Equity Capital Markets.</p>
+      <p class="r d2">Nobody repeats a pitch they have already given.</p>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2 class="r">Applications are open</h2>
+      <p class="r d1">No prior finance experience is required. We select for people who finish what they start.</p>
+      <div class="hero-actions r d2"><a class="btn btn-solid" href="#/apply">Apply</a></div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= APPLY ================= -->
+<div class="view" id="v-/apply">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker r">Apply</p>
+      <h1 class="r">We select for follow-through, not for what you already know.</h1>
+      <p class="lead r d1">Modeling can be taught in a semester. The willingness to rebuild something the night before a pitch cannot. No prior finance coursework or experience is required.</p>
+      <div class="hero-actions r d2">
+        <!-- REPLACE href with the Google Form link -->
+        <a class="btn btn-solid" href="#" id="apply-link">Start the application</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker r">Process</p>
+      <h2 class="r">What the process looks like</h2>
+      <div class="defs">
+        <dl class="def r"><dt>Written application</dt><dd>A short form covering your background, your interest in the sectors, and why the product structure appeals to you.</dd></dl>
+        <dl class="def r"><dt>Interview</dt><dd>A conversation with two members of the club, plus one short analytical exercise written for someone with no finance background.</dd></dl>
+        <dl class="def r"><dt>Placement</dt><dd>Accepted members are paired into a team and begin the first block.</dd></dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="kicker r">Commitment</p>
+      <h2 class="r">What we expect</h2>
+      <div class="defs">
+        <dl class="def r"><dt>Time</dt><dd>One meeting a week, plus roughly eight to twelve hours per block, most of it in the week before the pitch.</dd></dl>
+        <dl class="def r"><dt>Attendance</dt><dd>Come to every pitch in your block, not only your own. Watching other teams get questioned on the same product is half the value.</dd></dl>
+        <dl class="def r"><dt>Recruiting</dt><dd>Always an excused conflict. Tell us in advance.</dd></dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2 class="r">Questions before you apply</h2>
+      <p class="r d1">Reach out and we will answer. We would rather have a conversation first than have someone join and find it is not what they wanted.</p>
+      <!-- REPLACE with the club email -->
+      <div class="hero-actions r d2"><a class="btn btn-solid" href="mailto:REPLACE@example.com">Email us</a></div>
+    </div>
+  </section>
+
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <img src="logo-light.png" alt="Carolina Industrials &amp; Energy Group">
+      <div class="foot-nav">
+        <a href="#/about">About</a>
+        <a href="#/program">Program</a>
+        <a href="#/apply">Apply</a>
+        <!-- REPLACE with the club LinkedIn -->
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+    <p class="disclaimer">All analysis produced by members is an educational simulation built from public sources. It is not investment advice, not a recommendation to buy or sell any security, and not affiliated with or endorsed by any company referenced. Carolina Industrials &amp; Energy Group is a student organization and is not affiliated with or endorsed by the University of North Carolina at Chapel Hill.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('img').forEach(function(im){
+    im.addEventListener('error', function(){ im.style.visibility='hidden'; });
+  });
+  var views=document.querySelectorAll('.view'),
+      links=document.querySelectorAll('nav a[data-nav]'),
+      mh=document.getElementById('mh');
+
+  var io=null;
+  if('IntersectionObserver' in window){
+    io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.06});
+  }
+  function observe(root){
+    var els=root.querySelectorAll('.r');
+    if(!io){ els.forEach(function(el){el.classList.add('in')}); return; }
+    els.forEach(function(el){ el.classList.remove('in'); io.observe(el); });
+  }
+
+  function setChrome(){
+    var v=document.querySelector('.view.on');
+    var overHero=v && v.querySelector('.hero, .page-hero');
+    var past=window.scrollY>(overHero?Math.min(overHero.offsetHeight-90,420):10);
+    mh.classList.toggle('solid', overHero? past : true);
+  }
+
+  function route(){
+    var h=(location.hash||'#/').replace(/^#/,'');
+    if(!document.getElementById('v-'+h)) h='/';
+    views.forEach(function(v){ v.classList.toggle('on', v.id==='v-'+h); });
+    links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('data-nav')===h); });
+    window.scrollTo(0,0);
+    var cur=document.getElementById('v-'+h);
+    observe(cur);
+    requestAnimationFrame(function(){
+      cur.querySelectorAll('.hero .r, .page-hero .r').forEach(function(el){el.classList.add('in')});
+      setChrome();
+    });
+  }
+
+  window.addEventListener('hashchange',route);
+  window.addEventListener('scroll',setChrome,{passive:true});
+  route();
+})();
+</script>
+
+</body>
+</html>
